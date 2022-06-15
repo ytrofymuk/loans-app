@@ -1,0 +1,14 @@
+<div class="container">
+    <h2 class="loans__heading">Current Loans</h2>
+    <div class="loans__container" *ngFor="let loan of loans">
+        <div class="loans__box">
+            <h3 class="loans__name">{{loan.title}}</h3>
+            <p class="loans__description">Loan's amount available: {{loan.available | currency}}</p>
+        </div>
+        <button class="loans__button">Invest</button>
+    </div>
+    <div class="loans__amount">
+        <p class="loans__msg">Total amount available for investment:</p>
+        <span class="loans__total">{{totalAmount | currency }}</span>
+    </div>
+</div>

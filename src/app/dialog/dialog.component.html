@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Invest in Loan</h2>
+<span class="close" mat-dialog-close>&#10005;</span>
+<mat-dialog-content>
+    <p>{{data.title}}</p>
+    <p>Amount available: {{data.available | currency}}</p>
+    <p>Loan ends in: {{data.month}} month {{data.day}} days</p>
+    <h3>Investment amount</h3>
+    <input type="number" #inp (input)="checkError(inp.value)">
+    <button mat-dialog-close mat-dialog-close="true" (click)="invest(inp.value)" [ngClass]="{btnWarning: state}"
+        [disabled]="state || !inp.value" class="loans__button">Invest</button>
+    <p *ngIf="state" class="warning">Incorrect value</p>
+</mat-dialog-content>

@@ -60,4 +60,21 @@ export class GetLoansService {
     }
     return total;
   }
+
+  getLoanById(id: string) {
+    for (let loan of loans) {
+      if (loan.id === Number(id)) {
+        return loan;
+      }
+    }
+  }
+
+  invest(id: any, amount: any) {
+    for (let loan of loans) {
+      if (loan.id === Number(id)) {
+        loan.available -= amount;
+        loan.amount -= amount;
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+$btn-background: #F7E308;
 $text-color: #303247;
 
 * {
@@ -9,4 +10,16 @@ $text-color: #303247;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     color: $text-color;
+}
+
+.loans__button {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 12px 32px;
+    background-color: $btn-background;
+    cursor: pointer;
+    align-self: flex-end;
+    border-radius: 5px;
+    border: 0px solid $btn-background;
+    text-transform: uppercase;
 }

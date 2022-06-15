@@ -1,11 +1,12 @@
 <div class="container">
     <h2 class="loans__heading">Current Loans</h2>
-    <div class="loans__container" *ngFor="let loan of loans">
+    <div class="loans__container" *ngFor="let loan of loans;">
+        <span *ngIf="loan.available !== initial.get(loan.id)" class="invested">Invested</span>
         <div class="loans__box">
             <h3 class="loans__name">{{loan.title}}</h3>
-            <p class="loans__description">Loan's amount available: {{loan.available | currency}}</p>
+            <p class="loans__description">Loan's amount available: <br /> {{loan.available | currency}}</p>
         </div>
-        <button class="loans__button">Invest</button>
+        <button class="loans__button" [id]="loan.id" (click)="openDialog($event)">Invest</button>
     </div>
     <div class="loans__amount">
         <p class="loans__msg">Total amount available for investment:</p>

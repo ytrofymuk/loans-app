@@ -1,7 +1,7 @@
 .container {
     padding: 0 0 50px 0;
 }
-$btn-background: #F7E308;
+
 
 .loans__heading {
     font-weight: 600;
@@ -12,6 +12,7 @@ $btn-background: #F7E308;
 }
 
 .loans__container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 32px;
@@ -19,7 +20,7 @@ $btn-background: #F7E308;
     border-radius: 20px;
     margin-left: 64px;
     margin-bottom: 32px;
-    width: 40%;
+    width: 50%;
 }
 
 .loans__name {
@@ -32,26 +33,23 @@ $btn-background: #F7E308;
     font-size: 20px;
 }
 
-.loans__button {
-    font-weight: 500;
-    font-size: 20px;
-    padding: 12px 32px;
-    background-color: $btn-background;
-    cursor: pointer;
-    align-self: flex-end;
-    border-radius: 5px;
-    border: 0px solid $btn-background;
-    text-transform: uppercase;
-}
 
 .loans__amount {
     display: flex;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     margin-left: 64px;
 }
 
-.loans__msg, .loans__total {
+.loans__msg, .loans__total, .invested {
     font-weight: 600;
     font-size: 20px;
+}
+
+.invested {
+    color: #51A571;
+    font-size: 16px;
+    position: absolute;
+    right: 32px;
+    top: 15px;
 }

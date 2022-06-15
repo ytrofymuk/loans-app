@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoansComponent } from './loans/loans.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoansComponent
+    LoansComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { LoansComponent } from './loans/loans.component';
     FormsModule,
     MaterialModule
   ],
+  entryComponents: [DialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

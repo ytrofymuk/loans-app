@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetLoansService } from '../services/get-loans.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -8,12 +8,11 @@ import { DialogComponent } from '../dialog/dialog.component';
   templateUrl: './loans.component.html',
   styleUrls: ['./loans.component.scss']
 })
-export class LoansComponent implements OnInit, DoCheck {
+export class LoansComponent implements OnInit {
 
   loans!: any[];
   totalAmount!: number;
   currentElem: any;
-  initial = new Map();
 
 
   constructor(private getLoansService: GetLoansService, public matDialog: MatDialog) { }
@@ -21,10 +20,6 @@ export class LoansComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     this.loans = this.getLoansService.getLoans();
     this.totalAmount = this.getLoansService.getTotalAmount()
-
-    for (let loan of this.loans) {
-      this.initial.set(loan.id, loan.available);
-    }
   }
 
   openDialog(e: Event) {
@@ -37,7 +32,7 @@ export class LoansComponent implements OnInit, DoCheck {
       month = Math.floor(day / 30)
       day -= 30 * month;
     }
-    let dialogRef = this.matDialog.open(DialogComponent, {
+    let matDialogRef = this.matDialog.open(DialogComponent, {
       data: {
         title: loan.title,
         available: loan.available,
@@ -46,15 +41,11 @@ export class LoansComponent implements OnInit, DoCheck {
         id: id
       }
     })
-    dialogRef.afterClosed().subscribe(res => {
+    matDialogRef.afterClosed().subscribe(res => {
       if (res) {
-
+        this.loans = this.getLoansService.getLoans();
+        this.totalAmount = this.getLoansService.getTotalAmount()
       }
     })
-  }
-
-  ngDoCheck(): void {
-    this.loans = this.getLoansService.getLoans();
-    this.totalAmount = this.getLoansService.getTotalAmount()
   }
 }

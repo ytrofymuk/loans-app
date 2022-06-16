@@ -8,5 +8,5 @@
     <input type="number" #inp (input)="checkError(inp.value)">
     <button mat-dialog-close mat-dialog-close="true" (click)="invest(inp.value)" [ngClass]="{btnWarning: state}"
         [disabled]="state || !inp.value" class="loans__button">Invest</button>
-    <p *ngIf="state" class="warning">Incorrect value</p>
+    <p id="warning" *ngIf="state" class="warning">Incorrect value</p>
 </mat-dialog-content>

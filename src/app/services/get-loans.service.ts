@@ -56,7 +56,7 @@ export class GetLoansService {
   getTotalAmount() {
     let total: number = 0;
     for (let loan of loans) {
-      total += loan.amount;
+      total += loan.available;
     }
     return total;
   }
@@ -73,7 +73,7 @@ export class GetLoansService {
     for (let loan of loans) {
       if (loan.id === Number(id)) {
         loan.available -= amount;
-        loan.amount -= amount;
+        loan.invest = true;
       }
     }
   }

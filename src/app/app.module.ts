@@ -20,7 +20,7 @@ import { DialogComponent } from './dialog/dialog.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
   ],
   entryComponents: [DialogComponent],
   providers: [],

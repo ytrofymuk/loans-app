@@ -2,19 +2,18 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GetLoansService } from '../services/get-loans.service';
 
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  state: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private getLoanService: GetLoansService) { }
 
-  ngOnInit(): void {
-  }
-
-  state: boolean = false;
+  ngOnInit(): void { }
 
   invest(inp: any) {
     let value = inp

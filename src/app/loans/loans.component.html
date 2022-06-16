@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="loans__heading">Current Loans</h2>
     <div class="loans__container" *ngFor="let loan of loans;">
-        <span *ngIf="loan.available !== initial.get(loan.id)" class="invested">Invested</span>
+        <span *ngIf="loan.invest" class="invested">Invested</span>
         <div class="loans__box">
             <h3 class="loans__name">{{loan.title}}</h3>
             <p class="loans__description">Loan's amount available: <br /> {{loan.available | currency}}</p>
